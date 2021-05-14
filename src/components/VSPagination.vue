@@ -43,15 +43,18 @@
     },
     computed: {
       numberPages(){
+        console.log('1')
         return Math.ceil(this.totalItems / this.perPage)
       },
       paginatedItems(){
+        console.log('2')
         let end = this.perPage * this.pageNumber
         return this.items.slice(end - this.perPage,end);
       }
     },
     methods:  {
       changePageNumber(newPageNumber) {
+        console.log('3')
         this.pageNumber = newPageNumber;
         this.$router.push({path: this.$route.path, query: {
           ...this.$route.query,
@@ -59,6 +62,7 @@
         }})
       },
       changePerPage(newPerPage) {
+        console.log('4')
         this.perPage = newPerPage;
 
         let newNumberPages = Math.ceil(this.totalItems / newPerPage)
